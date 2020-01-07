@@ -109,3 +109,41 @@ const func3 = (a, b) => {
 const func3 = a => a + 10
 
 'marcin'
+
+function operacjaString(str) {
+  for (let i = 0, length = str.length; i < length; i += 1) {
+    console.log(str[i])
+  }
+  let i = 0;
+  let char;
+  while (char = str[i]) {
+    console.log(char);
+    i += 1;
+  }
+}
+
+function liczbaZnakow(str = 'koparka') {
+  const output = {}; // ??
+
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i];
+    if (output[char]) {
+      output[char] += 1;
+    } else {
+      output[char] = 1;
+    }
+
+    // output[char] = output[char] ? output[char] + 1 : 1
+  }
+
+  return output;
+}
+
+function forEach(
+  array = ['c', 'd'],
+  callback = (item, index) => console.log(item, index)
+) {
+  for (let i = 0; i < array.length; i += 1) {
+    callback(array[i], i);
+  }
+}
