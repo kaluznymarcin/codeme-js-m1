@@ -147,3 +147,30 @@ function forEach(
     callback(array[i], i);
   }
 }
+
+function map(
+  array = ['c', 'd'],
+  callback = (item, index) => item + index
+) {
+  const output = [];
+
+  for (let i = 0; i < array.length; i += 1) {
+    output.push(
+      callback(array[i], i)
+    );
+
+    // output[i] = callback(array[i], i);
+  }
+
+  return output;
+}
+
+
+// MDN
+
+.forEch()
+.map()
+.filter()
+.some()
+.every()
+.reduce()
