@@ -39,3 +39,58 @@ olElement.innerHTML = array.join('');
   olElement.appendChild(li);
 } */
 
+const liList = olElement.children;
+
+
+const vdom = [{
+  nodeName: "div",
+  id: "game",
+  children: [
+    {
+      nodeName: "ul",
+      children: [
+        {
+          nodeName: "li",
+          "#text": "0"
+        }, {
+          nodeName: "li",
+          "#text": "1"
+        }
+      ]
+    }
+  ]
+}];
+
+function makeElement(children) {
+  if (!Array.isArray(children)) {
+    return '';
+  }
+
+  const array = [];
+  for (let i = 0, ln = children.length; i < ln; i += 1) {
+    const nodeName = children[i].nodeName;
+    array.push(`
+      <${nodeName}>
+        ${makeElement(children[i].children)}
+      </${nodeName}>
+    `)
+  }
+
+  return array.join('');
+}
+
+function toHTML(objHTML) {
+  const fElement = objHTML[0];
+  const nodeName = fElement.nodeName;
+  const attrId = fElement.id;
+  const children = fElement.children;
+  return `
+    <${nodeName} id="${attrId}">
+      ${makeElement(children)}
+    </${nodeName}>
+  `;
+}
+
+const tpl = document.createElement('div');
+tpl.innerHTML = toHTML(vdom);
+document.body.appendChild(tpl)
