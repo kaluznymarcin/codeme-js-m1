@@ -43,3 +43,47 @@ const collection = [
     { "data": "2019-12-12", "cena": 182.32 },
     { "data": "2019-12-13", "cena": 181.71 }
 ];
+
+function createContainer(target, name = 'div') {
+    const element = document.createElement(name);
+    target.appendChild(element);
+    return element;
+}
+
+const container = createContainer(document.body);
+
+function punkt1(data) {
+    const output = [];
+    for (let i = 0; i < data.length; i += 1) {
+        output.push(data[i].cena);
+    }
+    return output;
+}
+
+function punkt_1(data) {
+    return data.map(function (item) {
+        return  item.cena
+    });
+}
+
+function punkt_2(data) {
+    return data.reverse();
+}
+
+function punkt_3(data) {
+    const list = createContainer(container, 'ol');
+
+    const html = data.map(item => `<li>${item}</li>`).join('');
+
+    list.innerHTML = html;
+}
+
+const rozwiazanie_punkt_1 = punkt_1(collection);
+const rozwiazanie_punkt_2 = punkt_2(rozwiazanie_punkt_1);
+punkt_3(rozwiazanie_punkt_2);
+
+/* punkt_3(
+    punkt_2(
+        punkt_1(collection)
+    )
+); */
