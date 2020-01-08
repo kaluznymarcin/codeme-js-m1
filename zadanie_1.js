@@ -1,5 +1,6 @@
 /**
- * Ponzej znajduje się kolekcja.
+ * Ponizej znajduje się kolekcja.
+ * 1/2 kontener w body dla danych
  *
  * 1. napisz funkcje która przyjmie paramet z taka kolekcja jak
  * przechowywana w stalej collection i zwroci

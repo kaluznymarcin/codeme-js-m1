@@ -66,7 +66,7 @@ function makeElement(children) {
     return '';
   }
 
-  const array = [];
+  /* const array = [];
   for (let i = 0, ln = children.length; i < ln; i += 1) {
     const nodeName = children[i].nodeName;
     array.push(`
@@ -74,23 +74,22 @@ function makeElement(children) {
         ${makeElement(children[i].children)}
       </${nodeName}>
     `)
-  }
+  } */
 
-  return array.join('');
+  //return array.join('');
+
+  return children
+    .map(item => `
+      <${item.nodeName}>
+        ${makeElement(item.children)}
+      </${item.nodeName}>
+    `)
+    .join('')
+
+
 }
 
-function toHTML(objHTML) {
-  const fElement = objHTML[0];
-  const nodeName = fElement.nodeName;
-  const attrId = fElement.id;
-  const children = fElement.children;
-  return `
-    <${nodeName} id="${attrId}">
-      ${makeElement(children)}
-    </${nodeName}>
-  `;
-}
 
 const tpl = document.createElement('div');
-tpl.innerHTML = toHTML(vdom);
+tpl.innerHTML = makeElement(vdom);
 document.body.appendChild(tpl)
