@@ -3,9 +3,9 @@ https://prod.liveshare.vsengsaas.visualstudio.com/join?464E54249A3C825C03932F357
 
 https://nodejs.org/en/download/
 
--- npx create-react-app my-app
+npx create-react-app my-app
 
--- npm start
+npm start
 
 
 # codeme-js
