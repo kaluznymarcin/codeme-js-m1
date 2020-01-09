@@ -173,3 +173,9 @@ const data = {
         "clouds": 1
     }]
 };
+
+
+function zadanie_3(data) {
+    const { list } = data;
+    return list.map(({ temp: { day } = {} }) => day);
+}

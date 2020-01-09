@@ -51,3 +51,48 @@ const data = [
     { "currency": "yuan renminbi (Chiny)", "code": "CNY", "mid": 0.5478 },
     { "currency": "SDR (MFW)", "code": "XDR", "mid": 5.2985 }
 ]
+
+(function () {
+
+    function punkt_1(data) {
+        const output = {};
+
+        for (let i = 1; i < data.length; i += 1) {
+            const item = data[i];
+            const key = item.code;
+            const value = item.mid;
+
+            output[key] = value;
+        }
+
+        return output;
+    }
+
+    function punkt_1(data) {
+        const output = {};
+
+        data.forEach(item => {
+            const key = item.code;
+            const value = item.mid;
+            output[key] = value;
+        });
+
+        return output;
+    }
+
+    function punkt_1(data) {
+        return data.reduce((acc, item) => {
+            const key = item.code;
+            const value = item.mid;
+            acc[key] = value;
+            return acc;
+        }, {});
+    }
+
+    function punkt_2(data) {
+        /* const values = Object.values(data);
+        Math.min.apply(Math, values); */
+        const values = Object.values(data);
+        Math.min(...values);
+    }
+}())

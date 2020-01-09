@@ -21,3 +21,22 @@ const obj = {a: {b: {
   }
 } } };
 
+function get(object, path, defaultValue) {
+  const keys = path.split('.');
+
+  for (let i = 0, ln = keys.length; i < ln; i += 1) {
+    if (keys[i] in object) {
+      object = object[keys[i]];
+    } else {
+      return;
+    }
+  }
+
+  return object
+}
+
+function get(object, path, defaultValue) {
+  return path.split('.').reduce(
+    (parent, name) => parent && typeof parent === 'object' ? parent[name] : undefined, object
+  ) || defaultValue;
+}
