@@ -10,7 +10,7 @@
 }
 
 .currency__body,
-.currency_header {
+.currency__header {
     display: flex;
     flex-direction: column;
 }
