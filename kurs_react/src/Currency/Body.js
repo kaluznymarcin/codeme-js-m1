@@ -13,19 +13,13 @@ const createRow = (data) => {
   ))
 }
 
-export default () => {
-  const [data, setData] = useState([])
-
+export default ({ currency, fetchData }) => {
   useEffect(() => {
-    data.length === 0 && fetch('http://api.nbp.pl/api/exchangerates/tables/a/last/5/', {
-      headers: {
-        Accept: 'application/json'
-      }
-    }).then(res => res.json()).then(data_from_res => setData(data_from_res[0].rates))
+    fetchData()
   });
   return (
     <div className="currency__body">
-      {createRow(data)}
+      {createRow(currency)}
     </div>
   )
 }
